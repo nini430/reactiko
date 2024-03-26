@@ -3,16 +3,7 @@ services:
   reactiko:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     ports:
-      - "7070:3000"
-    volumes:
-      - .:/app
-  testsiko:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    volumes:
-      - ./:/app
-    command: ["npm", "run", "test"]
+      - "80:80"
 

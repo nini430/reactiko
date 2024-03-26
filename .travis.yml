@@ -7,3 +7,15 @@ before_install:
 
 script:
   - docker run -e CI=true niniko123/reactiko npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'us-east-2'
+  app: 'reactiko'
+  env: 'Reactiko-env'
+  bucket_name: 'elasticbeanstalk-us-east-2-992382386439'
+  bucker_path: 'reactiko'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  access_secret_key: "$AWS_SECRET_KEY"
